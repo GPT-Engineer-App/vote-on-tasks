@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Container, VStack, HStack, Input, Button, Text, IconButton, Box, Select } from "@chakra-ui/react";
+import { Container, VStack, HStack, Input, Button, Text, IconButton, Box, Select, Image } from "@chakra-ui/react";
 import { FaThumbsUp, FaThumbsDown } from "react-icons/fa";
 
 const Index = () => {
@@ -30,58 +30,61 @@ const Index = () => {
   };
 
   return (
-    <Container centerContent maxW="container.md" height="100vh" display="flex" flexDirection="column" justifyContent="center" alignItems="center">
-      <VStack spacing={4} width="100%">
-        <HStack width="100%">
-          <Input
-            placeholder="Enter a new category"
-            value={categoryInput}
-            onChange={(e) => setCategoryInput(e.target.value)}
-          />
-          <Button onClick={addCategory} colorScheme="blue">Add Category</Button>
-        </HStack>
-        <HStack width="100%">
-          <Input
-            placeholder="Enter a new task"
-            value={taskInput}
-            onChange={(e) => setTaskInput(e.target.value)}
-          />
-          <Select placeholder="Select category" value={selectedCategory} onChange={(e) => setSelectedCategory(e.target.value)}>
-            {categories.map((category, index) => (
-              <option key={index} value={category}>{category}</option>
-            ))}
-          </Select>
-          <Button onClick={addTask} colorScheme="red">Add Task</Button>
-        </HStack>
+    <>
+      <Image src="/images/cute-kittens.jpg" alt="Cute Kittens" width="100%" mb={4} borderRadius="lg" />
+      <Container centerContent maxW="container.md" height="100vh" display="flex" flexDirection="column" justifyContent="center" alignItems="center">
         <VStack spacing={4} width="100%">
-          {categories.map((category, catIndex) => (
-            <Box key={catIndex} p={4} borderWidth="1px" borderRadius="lg" width="100%">
-              <Text fontSize="xl" fontWeight="bold">{category}</Text>
-              {tasks.filter(task => task.category === category).map((task, index) => (
-                <Box key={index} p={4} borderWidth="1px" borderRadius="lg" width="100%" mt={2}>
-                  <HStack justifyContent="space-between">
-                    <Text>{task.text}</Text>
-                    <HStack>
-                      <IconButton
-                        aria-label="Upvote"
-                        icon={<FaThumbsUp />}
-                        onClick={() => voteTask(index, 1)}
-                      />
-                      <Text>{task.votes}</Text>
-                      <IconButton
-                        aria-label="Downvote"
-                        icon={<FaThumbsDown />}
-                        onClick={() => voteTask(index, -1)}
-                      />
-                    </HStack>
-                  </HStack>
-                </Box>
+          <HStack width="100%">
+            <Input
+              placeholder="Enter a new category"
+              value={categoryInput}
+              onChange={(e) => setCategoryInput(e.target.value)}
+            />
+            <Button onClick={addCategory} colorScheme="blue">Add Category</Button>
+          </HStack>
+          <HStack width="100%">
+            <Input
+              placeholder="Enter a new task"
+              value={taskInput}
+              onChange={(e) => setTaskInput(e.target.value)}
+            />
+            <Select placeholder="Select category" value={selectedCategory} onChange={(e) => setSelectedCategory(e.target.value)}>
+              {categories.map((category, index) => (
+                <option key={index} value={category}>{category}</option>
               ))}
-            </Box>
-          ))}
+            </Select>
+            <Button onClick={addTask} colorScheme="red">Add Task</Button>
+          </HStack>
+          <VStack spacing={4} width="100%">
+            {categories.map((category, catIndex) => (
+              <Box key={catIndex} p={4} borderWidth="1px" borderRadius="lg" width="100%">
+                <Text fontSize="xl" fontWeight="bold">{category}</Text>
+                {tasks.filter(task => task.category === category).map((task, index) => (
+                  <Box key={index} p={4} borderWidth="1px" borderRadius="lg" width="100%" mt={2}>
+                    <HStack justifyContent="space-between">
+                      <Text>{task.text}</Text>
+                      <HStack>
+                        <IconButton
+                          aria-label="Upvote"
+                          icon={<FaThumbsUp />}
+                          onClick={() => voteTask(index, 1)}
+                        />
+                        <Text>{task.votes}</Text>
+                        <IconButton
+                          aria-label="Downvote"
+                          icon={<FaThumbsDown />}
+                          onClick={() => voteTask(index, -1)}
+                        />
+                      </HStack>
+                    </HStack>
+                  </Box>
+                ))}
+              </Box>
+            ))}
+          </VStack>
         </VStack>
-      </VStack>
-    </Container>
+      </Container>
+    </>
   );
 };
 
