@@ -1,8 +1,18 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Container, VStack, HStack, Input, Button, Text, IconButton, Box, Select, Image } from "@chakra-ui/react";
 import { FaThumbsUp, FaThumbsDown } from "react-icons/fa";
 
 const Index = () => {
+  useEffect(() => {
+    document.body.style.backgroundImage = "url('/images/cute-kittens.jpg')";
+    document.body.style.backgroundSize = "cover";
+    document.body.style.backgroundRepeat = "no-repeat";
+    document.body.style.backgroundPosition = "center";
+    return () => {
+      document.body.style.backgroundImage = "";
+    };
+  }, []);
+
   const [tasks, setTasks] = useState([]);
   const [taskInput, setTaskInput] = useState("");
   const [categories, setCategories] = useState([]);
@@ -31,7 +41,7 @@ const Index = () => {
 
   return (
     <>
-      <Image src="/images/cute-kittens.jpg" alt="Cute Kittens" width="100%" mb={4} borderRadius="lg" />
+      
       <Container centerContent maxW="container.md" height="100vh" display="flex" flexDirection="column" justifyContent="center" alignItems="center">
         <VStack spacing={4} width="100%">
           <HStack width="100%">
