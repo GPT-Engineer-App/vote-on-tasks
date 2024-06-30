@@ -7,9 +7,13 @@ const Index = () => {
     document.body.style.backgroundImage = "url('/images/cute-kittens.jpg')";
     document.body.style.backgroundSize = "cover";
     document.body.style.backgroundRepeat = "no-repeat";
-    document.body.style.backgroundPosition = "center";
+    document.body.style.backgroundPosition = "center center";
+    document.body.style.height = "100vh";
+    document.body.style.margin = "0";
     return () => {
       document.body.style.backgroundImage = "";
+      document.body.style.height = "";
+      document.body.style.margin = "";
     };
   }, []);
 
@@ -41,8 +45,19 @@ const Index = () => {
 
   return (
     <>
-      
-      <Container centerContent maxW="container.md" display="flex" flexDirection="column" justifyContent="center" alignItems="center" bg="rgba(255, 255, 255, 0.6)" backdropFilter="blur(10px)" borderRadius="10px" p={4} mt={10} mb={10}>
+      <Container 
+        centerContent 
+        maxW="container.md" 
+        display="flex" 
+        flexDirection="column" 
+        justifyContent="center" 
+        alignItems="center" 
+        bg="rgba(255, 255, 255, 0.6)" 
+        backdropFilter="blur(10px)" 
+        borderRadius="10px" 
+        p={4} 
+        minH="100vh"
+      >
         <VStack spacing={4} width="100%">
           <HStack width="100%">
             <Input
