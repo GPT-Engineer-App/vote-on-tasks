@@ -52,7 +52,7 @@ const Index = () => {
         flexDirection="column" 
         justifyContent="center" 
         alignItems="center" 
-        bg="rgba(255, 255, 255, 0.6)" 
+        bg="rgba(255, 255, 255, 0.3)" 
         backdropFilter="blur(10px)" 
         borderRadius="10px" 
         p={4} 
