@@ -12,12 +12,8 @@ const Index = () => {
     wrapper.style.display = "flex";
     wrapper.style.justifyContent = "center";
     wrapper.style.alignItems = "center";
-    wrapper.style.height = "100vh";
-    wrapper.style.margin = "0";
     return () => {
       wrapper.style.backgroundImage = "";
-      wrapper.style.height = "";
-      wrapper.style.margin = "";
     };
   }, []);
 
@@ -48,7 +44,7 @@ const Index = () => {
   };
 
   return (
-    <div id="background-wrapper">
+    <div id="background-wrapper" style={{ height: "100vh" }}>
       <Container 
         centerContent 
         maxW="container.md" 
@@ -60,7 +56,7 @@ const Index = () => {
         backdropFilter="blur(10px)" 
         borderRadius="10px" 
         p={4} 
-        minH="100vh"
+        minH="50vh"
       >
         <VStack spacing={4} width="100%">
           <HStack width="100%">
