@@ -42,7 +42,7 @@ const Index = () => {
   return (
     <>
       
-      <Container centerContent maxW="container.md" height="100vh" display="flex" flexDirection="column" justifyContent="center" alignItems="center">
+      <Container centerContent maxW="container.md" height="100vh" display="flex" flexDirection="column" justifyContent="center" alignItems="center" bg="rgba(255, 255, 255, 0.8)" backdropFilter="blur(10px)" borderRadius="10px" p={4}>
         <VStack spacing={4} width="100%">
           <HStack width="100%">
             <Input
