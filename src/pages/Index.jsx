@@ -1,19 +1,23 @@
 import React, { useState, useEffect } from "react";
-import { Container, VStack, HStack, Input, Button, Text, IconButton, Box, Select, Image } from "@chakra-ui/react";
+import { Container, VStack, HStack, Input, Button, Text, IconButton, Box, Select } from "@chakra-ui/react";
 import { FaThumbsUp, FaThumbsDown } from "react-icons/fa";
 
 const Index = () => {
   useEffect(() => {
-    document.body.style.backgroundImage = "url('/images/cute-kittens.jpg')";
-    document.body.style.backgroundSize = "cover";
-    document.body.style.backgroundRepeat = "no-repeat";
-    document.body.style.backgroundPosition = "center center";
-    document.body.style.height = "100vh";
-    document.body.style.margin = "0";
+    const wrapper = document.getElementById("background-wrapper");
+    wrapper.style.backgroundImage = "url('/images/cute-kittens.jpg')";
+    wrapper.style.backgroundSize = "cover";
+    wrapper.style.backgroundRepeat = "no-repeat";
+    wrapper.style.backgroundPosition = "center center";
+    wrapper.style.display = "flex";
+    wrapper.style.justifyContent = "center";
+    wrapper.style.alignItems = "center";
+    wrapper.style.height = "100vh";
+    wrapper.style.margin = "0";
     return () => {
-      document.body.style.backgroundImage = "";
-      document.body.style.height = "";
-      document.body.style.margin = "";
+      wrapper.style.backgroundImage = "";
+      wrapper.style.height = "";
+      wrapper.style.margin = "";
     };
   }, []);
 
@@ -44,7 +48,7 @@ const Index = () => {
   };
 
   return (
-    <>
+    <div id="background-wrapper">
       <Container 
         centerContent 
         maxW="container.md" 
@@ -109,7 +113,7 @@ const Index = () => {
           </VStack>
         </VStack>
       </Container>
-    </>
+    </div>
   );
 };
 
